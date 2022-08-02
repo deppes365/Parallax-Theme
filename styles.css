@@ -1,1 +1,129 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.top-banner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.25rem 1rem;
+  background-color: #000;
+}
+
+.top-banner p {
+  color: #fff;
+}
+
+.top-banner .top-banner-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  list-style: none;
+  height: 100%;
+}
+
+.top-banner .top-banner-links .top-banner-link {
+  color: gray;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.nav-bar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.nav-bar .website-title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-bar .nav-links {
+  width: 45%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.nav-bar .nav-links a {
+  text-decoration: none;
+}
+
+.nav-bar .mobile-menu {
+  width: 2.25rem;
+  height: 2.25rem;
+  position: relative;
+}
+
+.nav-bar .mobile-menu .top-line, .nav-bar .mobile-menu .middle-line, .nav-bar .mobile-menu .bottom-line {
+  width: 100%;
+  height: 2.5px;
+  position: absolute;
+  background-color: #000;
+  border-radius: 5px;
+}
+
+.nav-bar .mobile-menu .top-line {
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -25%);
+          transform: translate(-50%, -25%);
+}
+
+.nav-bar .mobile-menu .middle-line {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.nav-bar .mobile-menu .bottom-line {
+  top: 75%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -75%);
+          transform: translate(-50%, -75%);
+}
+/*# sourceMappingURL=styles.css.map */
