@@ -47,7 +47,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,6 +96,8 @@ body {
   width: 2.25rem;
   height: 2.25rem;
   position: relative;
+  cursor: pointer;
+  display: none;
 }
 
 .nav-bar .mobile-menu .top-line, .nav-bar .mobile-menu .middle-line, .nav-bar .mobile-menu .bottom-line {
@@ -104,6 +106,8 @@ body {
   position: absolute;
   background-color: #000;
   border-radius: 5px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .nav-bar .mobile-menu .top-line {
@@ -125,5 +129,23 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -75%);
           transform: translate(-50%, -75%);
+}
+
+.nav-bar .mobile-menu.active .top-line {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.nav-bar .mobile-menu.active .middle-line {
+  opacity: 0;
+}
+
+.nav-bar .mobile-menu.active .bottom-line {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
 }
 /*# sourceMappingURL=styles.css.map */
