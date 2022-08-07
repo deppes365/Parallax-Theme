@@ -6,10 +6,24 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	position: relative;
 }
 
 .wrapper {
 	width: 100%;
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	perspective: 10px;
+	position: relative;
+}
+
+.top-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
 }
 
 .top-banner {
@@ -18,6 +32,18 @@ body {
 	justify-content: space-between;
 	padding: 0.25rem 1rem;
 	background-color: #000;
+	height: 1.75rem;
+
+	.commonwealth-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		img {
+			height: 1rem;
+			width: 1rem;
+		}
+	}
 
 	p {
 		color: #fff;
@@ -48,12 +74,14 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-    padding: 0.5rem 0;
+	padding: 0.5rem 0;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) ;
+	position: relative;
 
 	.website-title {
 		a {
 			text-decoration: none;
-			color: #000;
+			color: #fff;
 		}
 	}
 
@@ -67,43 +95,51 @@ body {
 
 		a {
 			text-decoration: none;
+			color: #A4A4A4;
+			font-size: 1.2rem;
+
+			&.active {
+				color: #fff;
+			}
 		}
 	}
 
-    .mobile-menu {
-        width: 2.25rem;
-        height: 2.25rem;
-        position: relative;
+	.mobile-menu-btn {
+		width: 2.25rem;
+		height: 2.25rem;
+		position: relative;
 		cursor: pointer;
 		display: none;
 
-        
-        .top-line, .middle-line, .bottom-line {
-            width: 100%;
-            height: 2.5px;
-            position: absolute;
-            background-color: #000;
-            border-radius: 5px;
+		.top-line,
+		.middle-line,
+		.bottom-line {
+			width: 100%;
+			height: 2.5px;
+			position: absolute;
+			background-color: #fff;
+			border-radius: 5px;
 			transition: 0.3s ease;
-        }
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+		}
 
-        .top-line {
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -25%);
-        }
+		.top-line {
+			top: 25%;
+			left: 50%;
+			transform: translate(-50%, -25%);
+		}
 
-        .middle-line {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+		.middle-line {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 
-        .bottom-line {
-            top: 75%;
-            left: 50%;
-            transform: translate(-50%, -75%);
-        }
+		.bottom-line {
+			top: 75%;
+			left: 50%;
+			transform: translate(-50%, -75%);
+		}
 
 		&.active {
 			.top-line {
@@ -122,5 +158,99 @@ body {
 				transform: translate(-50%, -50%) rotate(-45deg);
 			}
 		}
-    }
+	} // .mobile-menu
+} // .nav-bar
+
+header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	transform-style: preserve-3d;
+	z-index: -1;
+
+	.background {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: -1;
+		transform: translateZ(-10px) scale(2.02);
+	}
+
+	.foreground {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: 0;
+		transform: translateZ(-10px) scale(2.02);
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	h1 {
+		font-size: 3rem;
+		text-align: center;
+		color: #fff;
+		text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.nav-links {
+		position: fixed;
+		flex-direction: column;
+		justify-content: flex-start !important;
+		gap: 1rem;
+		width: 100%;
+		height: calc(100vh - 1.75rem);
+		top: 1.75rem;
+		right: 0;
+		background-color: #fff;
+		z-index: 9;
+		transform: translateX(100%);
+		transition: 0.3s ease;
+		padding-top: 5rem;
+
+		li {
+			width: 100%;
+		}
+
+		a.nav-link {
+			color: #515151 !important;
+			display: block !important;
+			width: 100% !important;
+			text-align: right !important;
+			padding: 0.5rem 2rem 0.5rem;
+
+			&.active {
+				color: #fff !important;
+				background-color: #515151;
+				box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+			}
+		}
+
+		&.active {
+			transform: translateX(0);
+		}
+	}
+
+	.nav-bar {
+		.mobile-menu-btn {
+			position: absolute;
+			top: 50%;
+			right: 2rem;
+			transform: translateY(-50%);
+			display: flex;
+			z-index: 10;
+
+			&.active {
+				.top-line, .middle-line, .bottom-line {
+					background-color: #000;
+				}
+			}
+		}
+	}
 }
