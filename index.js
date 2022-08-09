@@ -5,6 +5,7 @@ const menuBtn = document.querySelector('.mobile-menu-btn')
 const navLinksContainer = document.querySelector('.nav-links')
 const navLinks = document.querySelectorAll('.nav-link')
 const wrapper = document.querySelector('.wrapper')
+const navBar = document.querySelector('.nav-bar')
 
 // Event Listeners
 menuBtn.addEventListener('click', () => {
@@ -35,6 +36,16 @@ wrapper.addEventListener('click', (e) => {
     if(navLinksContainer.classList.contains('active')) {
         menuBtn.classList.toggle('active')
         navLinksContainer.classList.toggle('active')
+    }
+})
+
+wrapper.addEventListener('scroll', () => {
+    const scroll = wrapper.scrollTop;
+
+    if(scroll >= 200) {
+        navBar.classList.add('solid')
+    } else if(navBar.classList.contains('solid') && scroll <= 200) {
+        navBar.classList.remove('solid')
     }
 })
 
