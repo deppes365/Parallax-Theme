@@ -4,6 +4,7 @@
 const menuBtn = document.querySelector('.mobile-menu-btn')
 const navLinksContainer = document.querySelector('.nav-links')
 const navLinks = document.querySelectorAll('.nav-link')
+const wrapper = document.querySelector('.wrapper')
 
 // Event Listeners
 menuBtn.addEventListener('click', () => {
@@ -14,13 +15,30 @@ menuBtn.addEventListener('click', () => {
 navLinksContainer.addEventListener('click', (e) => {
     const clickedElement = e.target.classList;
 
-    if(clickedElement.contains('active')) {
+    if(clickedElement.contains('active') && clickedElement.contains('nav-link')) {
+        menuBtn.classList.toggle('active')
+        navLinksContainer.classList.toggle('active')
         return
-    } else if(!clickedElement.contains('active')) {
+    } else if(!clickedElement.contains('active') && clickedElement.contains('nav-link')) {
         navLinks.forEach(link => {
             link.classList.remove('active')
         })
 
         e.target.classList.add('active')
+        menuBtn.classList.toggle('active')
+        navLinksContainer.classList.toggle('active')
     }
 })
+
+// If user clicks on the webpage while the mobile menu is open, this closes the menu
+wrapper.addEventListener('click', (e) => {
+    if(navLinksContainer.classList.contains('active')) {
+        menuBtn.classList.toggle('active')
+        navLinksContainer.classList.toggle('active')
+    }
+})
+
+
+
+
+

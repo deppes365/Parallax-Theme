@@ -124,12 +124,16 @@ body {
 
 .nav-bar .nav-links a {
   text-decoration: none;
-  color: #A4A4A4;
+  color: #a4a4a4;
   font-size: 1.2rem;
 }
 
 .nav-bar .nav-links a.active {
   color: #fff;
+}
+
+.nav-bar .nav-links .other-links {
+  display: none;
 }
 
 .nav-bar .mobile-menu-btn {
@@ -242,6 +246,14 @@ header h1 {
 }
 
 @media only screen and (max-width: 768px) {
+  .top-banner {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .top-banner .top-banner-links {
+    display: none;
+  }
   .nav-links {
     position: fixed;
     -webkit-box-orient: vertical;
@@ -263,6 +275,8 @@ header h1 {
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
     padding-top: 5rem;
+    -webkit-box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
   }
   .nav-links li {
     width: 100%;
@@ -284,6 +298,24 @@ header h1 {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+  .nav-links .other-links {
+    width: 100%;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .nav-links .other-links a {
+    color: #515151 !important;
+  }
   .nav-bar .mobile-menu-btn {
     position: absolute;
     top: 50%;
@@ -295,7 +327,9 @@ header h1 {
     display: flex;
     z-index: 10;
   }
-  .nav-bar .mobile-menu-btn.active .top-line, .nav-bar .mobile-menu-btn.active .middle-line, .nav-bar .mobile-menu-btn.active .bottom-line {
+  .nav-bar .mobile-menu-btn.active .top-line,
+  .nav-bar .mobile-menu-btn.active .middle-line,
+  .nav-bar .mobile-menu-btn.active .bottom-line {
     background-color: #000;
   }
 }

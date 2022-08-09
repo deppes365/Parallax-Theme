@@ -75,7 +75,7 @@ body {
 	display: flex;
 	justify-content: center;
 	padding: 0.5rem 0;
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)) ;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 	position: relative;
 
 	.website-title {
@@ -95,12 +95,16 @@ body {
 
 		a {
 			text-decoration: none;
-			color: #A4A4A4;
+			color: #a4a4a4;
 			font-size: 1.2rem;
 
 			&.active {
 				color: #fff;
 			}
+		}
+
+		.other-links {
+			display: none;
 		}
 	}
 
@@ -199,6 +203,15 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
+	.top-banner {
+		justify-content: center;
+
+		.top-banner-links {
+			display: none;
+		}
+	}
+	
+
 	.nav-links {
 		position: fixed;
 		flex-direction: column;
@@ -213,6 +226,7 @@ header {
 		transform: translateX(100%);
 		transition: 0.3s ease;
 		padding-top: 5rem;
+		box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
 
 		li {
 			width: 100%;
@@ -235,6 +249,22 @@ header {
 		&.active {
 			transform: translateX(0);
 		}
+
+		.other-links {
+			width: 100%;
+			display: flex !important;
+			justify-content: center;
+			gap: 1rem;
+			position: absolute;
+			bottom: 3rem;
+			left: 50%;
+			transform: translateX(-50%);
+			
+
+			a {
+				color: #515151 !important;
+			}
+		}
 	}
 
 	.nav-bar {
@@ -247,7 +277,9 @@ header {
 			z-index: 10;
 
 			&.active {
-				.top-line, .middle-line, .bottom-line {
+				.top-line,
+				.middle-line,
+				.bottom-line {
 					background-color: #000;
 				}
 			}
