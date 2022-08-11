@@ -32,7 +32,7 @@ navLinksContainer.addEventListener('click', (e) => {
 })
 
 // If user clicks on the webpage while the mobile menu is open, this closes the menu
-wrapper.addEventListener('click', (e) => {
+wrapper.addEventListener('click', () => {
     if(navLinksContainer.classList.contains('active')) {
         menuBtn.classList.toggle('active')
         navLinksContainer.classList.toggle('active')
