@@ -249,6 +249,10 @@ section {
 	&:first-of-type {
 		box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.3);
 	}
+
+	.container {
+		padding: 5rem 2rem 2rem 2rem;
+	}
 }
 
 .section-title {
@@ -259,7 +263,6 @@ section {
 
 #about {
 	.container {
-		padding: 5rem 2rem 2rem 2rem;
 		flex-direction: column;
 		justify-content: flex-start;
 	}
