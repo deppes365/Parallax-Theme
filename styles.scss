@@ -376,6 +376,12 @@ section {
 	}
 }
 
+#partners {
+	.container {
+		flex-direction: column;
+	}
+}
+
 @media only screen and (max-width: 768px) {
 	.top-banner {
 		justify-content: center;

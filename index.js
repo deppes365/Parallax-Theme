@@ -6,6 +6,7 @@ const navLinksContainer = document.querySelector('.nav-links')
 const navLinks = document.querySelectorAll('.nav-link')
 const wrapper = document.querySelector('.wrapper')
 const navBar = document.querySelector('.nav-bar')
+const pages = document.querySelectorAll('.page')
 
 // Event Listeners
 menuBtn.addEventListener('click', () => {
@@ -21,11 +22,11 @@ navLinksContainer.addEventListener('click', (e) => {
         navLinksContainer.classList.toggle('active')
         return
     } else if(!clickedElement.contains('active') && clickedElement.contains('nav-link')) {
-        navLinks.forEach(link => {
-            link.classList.remove('active')
-        })
+        // navLinks.forEach(link => {
+        //     link.classList.remove('active')
+        // })
 
-        e.target.classList.add('active')
+        // e.target.classList.add('active')
         menuBtn.classList.toggle('active')
         navLinksContainer.classList.toggle('active')
     }
@@ -47,6 +48,30 @@ wrapper.addEventListener('scroll', () => {
     } else if(navBar.classList.contains('solid') && scroll <= 200) {
         navBar.classList.remove('solid')
     }
+})
+
+// Intersection Observers
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            const currentPage = entry.target.id;
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            })
+
+            navLinks.forEach(link => {
+                if(link.dataset.link === currentPage) {
+                    link.classList.add('active')
+                }
+            })
+        };
+    })
+}, {threshold: 0.6});
+
+pages.forEach(page => {
+    observer.observe(page)
 })
 
 

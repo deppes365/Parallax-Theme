@@ -451,6 +451,13 @@ section .container {
   opacity: 1;
 }
 
+#partners .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 @media only screen and (max-width: 768px) {
   .top-banner {
     -webkit-box-pack: center;
